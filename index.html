@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DEC Vax VMS Terminal</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<div class="crt">
+		<div class="scanline"></div>
+		<div class="noise"></div>
+		<div class="terminal">
+			<div class="terminal-header">
+				<div class="system-info">
+					<div class="blink">SYSTEM v2.25.2</div>
+					<div>SECURE CONNECTION: <span class="status-fail">FAILED</span></div>
+					<div>ENCRYPTION: <span class="encryption-status">ACTIVE</span></div>
+					<img src="https://picsum.photos/seed/cyber/800/200" alt="System Banner" class="system-banner">
+				</div>
+			</div>
+
+			<div class="matrix-bg" id="matrix-canvas"></div>
+
+			<div class="terminal-content">
+				<div id="output" class="terminal-output">
+					<div class="boot-sequence">
+						<p>> INITIALIZING SYSTEM...</p>
+						<p>> LOADING KERNEL MODULES...</p>
+						<p>> ESTABLISHING SECURE CONNECTION...</p>
+						<p>> BYPASSING FIREWALL...</p>
+						<p>> ACCESS GRANTED</p>
+						<p class="command-help">> TYPE /help FOR AVAILABLE COMMANDS</p>
+					</div>
+				</div>
+
+				<div class="input-line">
+					<span class="prompt">root@bauska:~$</span>
+					<input type="text" id="terminal-input" class="terminal-input" autofocus spellcheck="false" aria-label="Terminal input">
+				</div>
+			</div>
+
+			<div id="file-input-container" class="hidden">
+				<input type="file" id="file-input" aria-label="File upload">
+			</div>
+
+			<div id="modal" class="modal hidden" role="dialog" aria-labelledby="modal-title">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 id="modal-title">SYSTEM ALERT</h2>
+						<button class="close-modal" aria-label="Close modal">&times;</button>
+					</div>
+					<div id="modal-body" class="modal-body"></div>
+				</div>
+			</div>
+
+			<div id="preview-container" class="preview-container hidden" role="dialog" aria-labelledby="preview-title">
+				<div class="preview-header">
+					<h3 id="preview-title">FILE PREVIEW</h3>
+					<button class="close-preview" aria-label="Close preview">&times;</button>
+				</div>
+				<div id="preview-content" class="preview-content"></div>
+			</div>
+		</div>
+	</div>
+
+	<audio id="keypress-sound" src="https://assets.codepen.io/t-1/key-press.mp3" preload="auto"></audio>
+	<audio id="access-sound" src="https://assets.codepen.io/t-1/access-granted.mp3" preload="auto"></audio>
+	<audio id="error-sound" src="https://assets.codepen.io/t-1/error.mp3" preload="auto"></audio>
+	<audio id="decrypt-sound" src="https://assets.codepen.io/t-1/decrypt.mp3" preload="auto"></audio>
+
+	<script src="script.js"></script>
+</body>
+
+</html>
